@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+    font-weight: 300;
+}
+.navbar{
+    width: 80%;
+    margin: 0 auto;
+} 
+header{
+    background: #75dcf5d8;
+}
+header::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.logo {
+    float: left;
+}
+nav {
+    float: right;
+} 
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none; 
+    display: flex; 
+    justify-content: space-around;
+}
