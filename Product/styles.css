@@ -1,0 +1,295 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+} 
+
+body{
+    font-family: 'PT Sans', sans-serif;
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 1rem;
+    padding:  2rem 0;
+    background-image: url(images/pompas4.jpeg); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    box-sizing: border-box;
+}  
+.header{
+  background-color: burlywood; 
+  padding: 0;
+  margin: 0;
+} 
+li{
+  list-style: none;
+} 
+a{
+  color: white;
+  text-decoration: none;
+}
+.navbar{
+  min-height:  70px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 24px;
+}
+.logo{
+  font-size: 32px;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+} 
+.nav-link{
+  transition: 0.7s ease;
+}
+.nav-link:hover{
+  color: black;
+}
+.nav-menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+.hamburger{
+  display: none;
+  cursor: pointer;
+
+}
+.bar{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; 
+  background-color: white;
+}
+.container{
+    max-width: 100rem;
+    margin-inline: auto;
+    padding: 2rem; 
+    margin-top: 20%;
+}  
+.stacked{
+    display: grid;
+
+} 
+/* within stacked class choosing the direct child of that class to group img and content as one. */
+.stacked > *{
+    grid-column: 1/2;
+    grid-row: 1/2;
+} 
+.product-grid{
+    display: grid;
+    gap: .125rem; 
+    /* below is how you get how many colums you have. rows are based off of based how many items you have */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}  
+
+.card{
+    aspect-ratio:1 / 1.5;
+}
+/* if img was placed after content use z-index*/ 
+.card__content{
+    background: white;
+    align-self: end; 
+    margin: .5rem .5rem 2rem; 
+    padding: .5rem;
+    box-shadow: 0 .25rem 1rem rgb(0 0 0 /.1);
+} 
+#featured1{
+    box-shadow: 0 .25rem 1rem rgb(0 0 0 /.1);
+} 
+.card__title{
+    font-size: 1.5rem; 
+    text-align: center;
+    line-height: 1.1;
+    font-weight:bolder;
+} 
+.card__price{
+    font-size: 1.75rem; 
+    text-align: center;
+    line-height: 1.1;
+    font-weight:light;
+    color: rgba(141, 128, 128, 0.938);
+} 
+.card__description{
+    text-align: center;
+}
+.img__card{
+    width: 100%;
+    /* this allows for your images to have the same heigh and width */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+.featured1{
+    grid-row-start: span 2;
+    grid-column-start: span 2;
+}
+.featured2{
+    grid-row-start: span 2;
+    grid-column-start: span 2;
+}
+
+@media screen and (max-width:768px){
+    .product-grid{
+        display: grid;
+        gap: .125rem; 
+        /* below is how you get how many colums you have. rows are based off of based how many items you have */
+        grid-template-columns: 1fr;
+    }  
+    .featured1:not(){
+        grid-row-start: span 2;
+        grid-column-start: span 2;
+    }
+    .featured2{
+        grid-row-start: span 2;
+        grid-column-start: span 2;
+    }
+    .hamburger{
+      display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+      opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+      transform: translateY(-8px) rotate(-45deg);
+    } 
+    .nav-menu{
+      position: fixed;
+      left: -100%;
+      top: 70px;
+      gap: 0;
+      flex-direction: column; 
+      width: 100%;
+      text-align: center;
+      background-color: burlywood; 
+      transition: 0.3s;
+    } 
+    .nav-item{
+      margin: 16px 0;
+    } 
+    .nav-menu.active{
+      left: 0;
+    }
+    
+}
+@media screen and (min-width:769px) and (max-width:1023px) {
+    .product-grid{
+        display: grid;
+        gap: .125rem; 
+        /* below is how you get how many colums you have. rows are based off of based how many items you have */
+        grid-template-columns: 1fr 1fr;
+    }
+    .featured1{
+        grid-row-start: span 2;
+        grid-column-start: span 2;
+    }
+    .featured2{
+        grid-row-start: span 2;
+        grid-column-start: span 2;
+    }
+    .hamburger{
+      display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+      opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+      transform: translateY(-8px) rotate(-45deg);
+    } 
+    .nav-menu{
+      position: fixed;
+      left: -100%;
+      top: 70px;
+      gap: 0;
+      flex-direction: column; 
+      width: 100%;
+      text-align: center;
+      background-color: burlywood; 
+      transition: 0.3s;
+    } 
+    .nav-item{
+      margin: 16px 0;
+    } 
+    .nav-menu.active{
+      left: 0;
+    }
+
+}
