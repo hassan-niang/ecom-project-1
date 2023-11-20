@@ -31,6 +31,7 @@ body{
     z-index:5; 
     object-fit: cover;
 } 
+
 #hero .caption{
     position: relative;
     z-index: 20; 
@@ -179,6 +180,9 @@ ul{
         width: 50%;
         margin-bottom: 30px;
         font-size: .75rem;
+    }
+    .caption{
+        margin-top: 50%;
     }
 } 
 @media screen and (min-width:768px) and (max-width: 1023px) {
